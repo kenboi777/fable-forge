@@ -1,0 +1,8 @@
+[
+ {"name":"Euphoric","adjectives":["euphoric","radiant","soaring","triumphant"],"sceneBank":["sunrise breaks over a neon festival horizon","a crowd lifts as the skyline floods with gold","open-road momentum beneath electric clouds"]},
+ {"name":"Dark","adjectives":["dark","menacing","industrial","tense"],"sceneBank":["red alarms pulse through an abandoned megafactory","a chrome predator wakes beneath the city","warehouse shadows close around a single strobe"]},
+ {"name":"Dreamy","adjectives":["dreamy","weightless","luminous","tender"],"sceneBank":["rain floats upward through a violet midnight","distant lights drift across a sleeping ocean","memory fragments bloom in zero gravity"]},
+ {"name":"Feral","adjectives":["feral","primal","volatile","relentless"],"sceneBank":["jungle drums ignite a concrete arena","a ritual circle erupts under stormlight","footsteps become thunder in the dust"]},
+ {"name":"Nostalgic","adjectives":["nostalgic","bittersweet","warm","cinematic"],"sceneBank":["an old cassette rewinds a lost summer","tail-lights fade along a coastal highway","arcade reflections flicker in an empty mall"]},
+ {"name":"Cybernetic","adjectives":["cybernetic","precise","metallic","futuristic"],"sceneBank":["a machine city assembles itself beat by beat","laser grids scan a rain-black boulevard","synthetic hearts synchronize in a data vault"]}
+]

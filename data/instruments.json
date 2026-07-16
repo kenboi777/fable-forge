@@ -1,0 +1,19 @@
+[
+ {"name":"None","culture":"None","fallbackDescription":"clean electronic lead"},
+ {"name":"Đàn bầu","culture":"Vietnam","fallbackDescription":"a singing monochord lead with elastic pitch bends and glassy harmonics"},
+ {"name":"Suona (restrained)","culture":"China","fallbackDescription":"restrained suona, a piercing double-reed horn kept lyrical and controlled"},
+ {"name":"Suona (bold)","culture":"China","fallbackDescription":"bold suona, a bright penetrating double-reed horn leading the hook"},
+ {"name":"Suona (maximum)","culture":"China","fallbackDescription":"maximum-intensity suona, an explosive celebratory double-reed horn above the drop"},
+ {"name":"Serunai","culture":"Malaysia","fallbackDescription":"nasal ceremonial double-reed serunai with winding ornamentation"},
+ {"name":"Kompang","culture":"Malaysia","fallbackDescription":"tight hand-frame-drum ensemble accents","drum":true},
+ {"name":"Gamelan","culture":"Indonesia","fallbackDescription":"interlocking bronze metallophones with shimmering overtones"},
+ {"name":"Phin","culture":"Thailand","fallbackDescription":"bright plucked Isan lute riffs with nimble folk phrasing"},
+ {"name":"Khaen","culture":"Laos","fallbackDescription":"breathy bamboo mouth-organ drones and pulsing chords"},
+ {"name":"Guzheng","culture":"China","fallbackDescription":"guzheng zither glissandi, bent strings and crisp plucked attacks"},
+ {"name":"Erhu","culture":"China","fallbackDescription":"erhu two-string bowed lead with expressive slides; unmistakably Chinese erhu timbre, not Western violin"},
+ {"name":"Dong-dong-qiang","culture":"China","fallbackDescription":"Chinese festival gong-and-drum cadence","drum":true},
+ {"name":"Log drum","culture":"South Africa","fallbackDescription":"deep pitched log-drum rolls and elastic low-end knocks","drum":true},
+ {"name":"Taiko","culture":"Japan","fallbackDescription":"massive Japanese taiko ensemble strikes","drum":true},
+ {"name":"Sitar","culture":"India","fallbackDescription":"buzzing sitar lead with cascading meends and sympathetic resonance"},
+ {"name":"Tabla","culture":"India","fallbackDescription":"articulate tabla bols and rolling hand-drum phrases","drum":true}
+]
