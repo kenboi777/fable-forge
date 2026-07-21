@@ -1,8 +1,110 @@
 [
- {"name":"Euphoric","adjectives":["euphoric","radiant","soaring","triumphant"],"sceneBank":["sunrise breaks over a neon festival horizon","a crowd lifts as the skyline floods with gold","open-road momentum beneath electric clouds"]},
- {"name":"Dark","adjectives":["dark","menacing","industrial","tense"],"sceneBank":["red alarms pulse through an abandoned megafactory","a chrome predator wakes beneath the city","warehouse shadows close around a single strobe"]},
- {"name":"Dreamy","adjectives":["dreamy","weightless","luminous","tender"],"sceneBank":["rain floats upward through a violet midnight","distant lights drift across a sleeping ocean","memory fragments bloom in zero gravity"]},
- {"name":"Feral","adjectives":["feral","primal","volatile","relentless"],"sceneBank":["jungle drums ignite a concrete arena","a ritual circle erupts under stormlight","footsteps become thunder in the dust"]},
- {"name":"Nostalgic","adjectives":["nostalgic","bittersweet","warm","cinematic"],"sceneBank":["an old cassette rewinds a lost summer","tail-lights fade along a coastal highway","arcade reflections flicker in an empty mall"]},
- {"name":"Cybernetic","adjectives":["cybernetic","precise","metallic","futuristic"],"sceneBank":["a machine city assembles itself beat by beat","laser grids scan a rain-black boulevard","synthetic hearts synchronize in a data vault"]}
+  {
+    "name": "Euphoric",
+    "adjectives": ["euphoric", "radiant", "soaring", "triumphant"],
+    "sceneBank": [
+      {"text": "sunrise breaks over a neon festival horizon", "sections": ["intro"]},
+      {"text": "first light glows across an expectant skyline", "sections": ["intro"]},
+      {"text": "open-road momentum runs beneath electric clouds", "sections": ["verse"]},
+      {"text": "bright chords carry the journey forward", "sections": ["verse"]},
+      {"text": "the skyline climbs as anticipation gathers", "sections": ["build"]},
+      {"text": "rising lights race toward the moment of release", "sections": ["build"]},
+      {"text": "the crowd lifts as the whole horizon floods with gold", "sections": ["drop"]},
+      {"text": "every light erupts in a wave of full-power joy", "sections": ["drop"]},
+      {"text": "the rush opens into weightless air and distant echoes", "sections": ["breakdown"]},
+      {"text": "a quiet glow hangs above the resting crowd", "sections": ["breakdown"]},
+      {"text": "golden lights drift away beyond the festival grounds", "sections": ["outro"]},
+      {"text": "the final radiance settles into the night", "sections": ["outro"]}
+    ]
+  },
+  {
+    "name": "Dark",
+    "adjectives": ["dark", "menacing", "industrial", "tense"],
+    "sceneBank": [
+      {"text": "a lone warning light wakes inside an abandoned megafactory", "sections": ["intro"]},
+      {"text": "cold machinery stirs beneath a lightless city", "sections": ["intro"]},
+      {"text": "warehouse shadows advance around a single strobe", "sections": ["verse"]},
+      {"text": "steel corridors pulse with controlled menace", "sections": ["verse"]},
+      {"text": "red alarms accelerate as the pressure climbs", "sections": ["build"]},
+      {"text": "locked gears strain toward a violent release", "sections": ["build"]},
+      {"text": "a chrome predator strikes with full mechanical force", "sections": ["drop"]},
+      {"text": "the factory floor detonates beneath crushing impact", "sections": ["drop"]},
+      {"text": "the alarms cut out and leave a cavern of cold air", "sections": ["breakdown"]},
+      {"text": "distant metal echoes through an emptied chamber", "sections": ["breakdown"]},
+      {"text": "the final warning signal fades into black", "sections": ["outro"]},
+      {"text": "heavy machinery powers down one pulse at a time", "sections": ["outro"]}
+    ]
+  },
+  {
+    "name": "Dreamy",
+    "adjectives": ["dreamy", "weightless", "luminous", "tender"],
+    "sceneBank": [
+      {"text": "moonlight opens across a sleeping violet ocean", "sections": ["intro"]},
+      {"text": "a soft constellation appears through silver mist", "sections": ["intro"]},
+      {"text": "memory fragments drift through weightless blue", "sections": ["verse"]},
+      {"text": "distant lights wander across a slow-moving tide", "sections": ["verse"]},
+      {"text": "floating colors gather and rise toward the stars", "sections": ["build"]},
+      {"text": "the luminous current swells with gentle momentum", "sections": ["build"]},
+      {"text": "the whole sky blooms in a radiant zero-gravity wave", "sections": ["drop"]},
+      {"text": "rain flies upward as the dream bursts into color", "sections": ["drop"]},
+      {"text": "the ocean falls quiet beneath a suspended moon", "sections": ["breakdown"]},
+      {"text": "a single memory breathes in the open silence", "sections": ["breakdown"]},
+      {"text": "the last constellation dissolves into morning haze", "sections": ["outro"]},
+      {"text": "soft reflections fade beneath the settling tide", "sections": ["outro"]}
+    ]
+  },
+  {
+    "name": "Feral",
+    "adjectives": ["feral", "primal", "volatile", "relentless"],
+    "sceneBank": [
+      {"text": "distant drums awaken beneath a gathering storm", "sections": ["intro"]},
+      {"text": "a ritual circle forms in the dust before dawn", "sections": ["intro"]},
+      {"text": "restless footsteps stalk the edge of the arena", "sections": ["verse"]},
+      {"text": "primal signals answer across the concrete wilds", "sections": ["verse"]},
+      {"text": "jungle drums accelerate as stormlight closes in", "sections": ["build"]},
+      {"text": "the ritual pulse rises toward a breaking point", "sections": ["build"]},
+      {"text": "the arena erupts in a full-force stampede", "sections": ["drop"]},
+      {"text": "footsteps become thunder as the circle explodes", "sections": ["drop"]},
+      {"text": "the dust hangs motionless after the charge", "sections": ["breakdown"]},
+      {"text": "one distant drum breathes through the sudden quiet", "sections": ["breakdown"]},
+      {"text": "the storm retreats beyond the emptied arena", "sections": ["outro"]},
+      {"text": "the final ritual echo settles into earth", "sections": ["outro"]}
+    ]
+  },
+  {
+    "name": "Nostalgic",
+    "adjectives": ["nostalgic", "bittersweet", "warm", "cinematic"],
+    "sceneBank": [
+      {"text": "an old cassette clicks on at the edge of summer", "sections": ["intro"]},
+      {"text": "late sunlight enters an empty childhood room", "sections": ["intro"]},
+      {"text": "arcade reflections travel along a coastal highway", "sections": ["verse"]},
+      {"text": "familiar streets roll past through a rain-soft window", "sections": ["verse"]},
+      {"text": "old photographs flicker faster as the memory swells", "sections": ["build"]},
+      {"text": "tail-lights multiply while the road climbs toward release", "sections": ["build"]},
+      {"text": "the lost summer returns in one bright cinematic rush", "sections": ["drop"]},
+      {"text": "every arcade light flashes back at full intensity", "sections": ["drop"]},
+      {"text": "the tape slows inside a quiet empty mall", "sections": ["breakdown"]},
+      {"text": "a distant radio lingers between memory and silence", "sections": ["breakdown"]},
+      {"text": "tail-lights fade beyond the last coastal turn", "sections": ["outro"]},
+      {"text": "the cassette unwinds into a warm evening hush", "sections": ["outro"]}
+    ]
+  },
+  {
+    "name": "Cybernetic",
+    "adjectives": ["cybernetic", "precise", "metallic", "futuristic"],
+    "sceneBank": [
+      {"text": "a machine city boots beneath a rain-black sky", "sections": ["intro"]},
+      {"text": "the first laser grid scans an empty boulevard", "sections": ["intro"]},
+      {"text": "synthetic hearts synchronize inside a data vault", "sections": ["verse"]},
+      {"text": "precise signals travel through the metallic avenue", "sections": ["verse"]},
+      {"text": "processor lights accelerate as the system overloads", "sections": ["build"]},
+      {"text": "the machine city assembles faster toward ignition", "sections": ["build"]},
+      {"text": "every circuit fires in one full-power digital impact", "sections": ["drop"]},
+      {"text": "the laser grid erupts across the entire megacity", "sections": ["drop"]},
+      {"text": "the network falls silent inside a weightless data void", "sections": ["breakdown"]},
+      {"text": "one synthetic heartbeat remains in the open space", "sections": ["breakdown"]},
+      {"text": "the boulevard powers down into blue static", "sections": ["outro"]},
+      {"text": "the final circuit dims as the system enters sleep", "sections": ["outro"]}
+    ]
+  }
 ]

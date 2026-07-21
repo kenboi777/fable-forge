@@ -9,6 +9,8 @@ import shoutsData from "../data/shouts.json";
 type Genre = (typeof genresData)[number];
 type Instrument = (typeof instrumentsData)[number] & { drum?: boolean };
 type PromptPair = { id: number; style: string; lyrics: string; meta: string; detectedKey?: string };
+type SceneSection = "intro"|"verse"|"build"|"drop"|"breakdown"|"outro";
+type SceneFragment = { text:string; sections:SceneSection[] };
 
 const icon = (glyph:string) => function Icon({size=16}:{size?:number}) { return <span aria-hidden="true" style={{fontSize:size,lineHeight:1}}>{glyph}</span>; };
 const Upload=icon("⇧"), WandSparkles=icon("✦"), FlaskConical=icon("⚗"), Copy=icon("⧉"), ExternalLink=icon("↗"), LockKeyhole=icon("◆"), Music2=icon("♫"), History=icon("◷"), RotateCcw=icon("↺"), Gauge=icon("◉"), Mic2=icon("♪");
@@ -45,6 +47,38 @@ function supportedRecordingType(){
   return types.find(type=>MediaRecorder.isTypeSupported(type)) || null;
 }
 function rawAudioExtension(mimeType:string){ return mimeType.includes("mp4") ? "m4a" : "webm"; }
+const sectionFallbacks:Record<SceneSection,string[]>={
+  intro:["atmosphere slowly emerging","the opening world coming into focus"],
+  verse:["forward motion settling into rhythm","the journey unfolding one layer at a time"],
+  build:["tension rising","energy climbing toward release","momentum gathering fast"],
+  drop:["full power","maximum impact","the whole sound hitting at once"],
+  breakdown:["stripped back and breathing","wide open space and quiet","the energy suspended in stillness"],
+  outro:["fading into the distance","the final echoes settling","motion slowing into silence"]
+};
+function sectionType(tag:string):SceneSection{
+  const value=tag.toLowerCase();
+  if(value.includes("intro")||value.includes("pulse")) return "intro";
+  if(value.includes("outro")||value.includes("dissolve")) return "outro";
+  if(value.includes("build")||value.includes("pre-chorus")) return "build";
+  if(value.includes("drop")||value.includes("chorus")||value.includes("assembly")) return "drop";
+  if(value.includes("breakdown")||value.includes("bridge")||value.includes("reset")) return "breakdown";
+  return "verse";
+}
+function takeScene(tag:string,sceneBank:SceneFragment[],used:Set<string>){
+  const kind=sectionType(tag);
+  const eligible=sceneBank.filter(fragment=>fragment.sections.includes(kind)&&!used.has(fragment.text));
+  if(eligible.length){
+    const scene=pick(eligible).text;
+    used.add(scene);
+    return scene;
+  }
+  const availableFallback=sectionFallbacks[kind].find(scene=>!used.has(scene));
+  if(availableFallback){ used.add(availableFallback); return availableFallback; }
+  let suffix=2, scene=`${tag.toLowerCase()} transition`;
+  while(used.has(scene)) scene=`${tag.toLowerCase()} transition ${suffix++}`;
+  used.add(scene);
+  return scene;
+}
 function encodeWav(audioBuffer:AudioBuffer){
   const channelCount=audioBuffer.numberOfChannels;
   const sampleRate=audioBuffer.sampleRate;
@@ -286,16 +320,22 @@ export default function Home() {
   }
 
   function assemble(){
-    const scene=pick(moodObj.sceneBank), adjectives=[...moodObj.adjectives].sort(()=>Math.random()-.5).slice(0,4);
+    const sceneBank=moodObj.sceneBank as SceneFragment[];
+    const scene=pick(sceneBank).text, adjectives=[...moodObj.adjectives].sort(()=>Math.random()-.5).slice(0,4);
     const gs=selected.map(g=>`${g.name.toLowerCase()} (${pick(g.keywords)})`).join(", ");
     const shoutObj=shoutsData.find(s=>s.culture===culture), shout=shoutObj?pick(shoutObj.words):"Hey!";
     const slots=[instrumental?"instrumental":null,gs,`${inst.name} — ${inst.fallbackDescription}`,inst.drum?`${inst.name} fused with 808 as one single impact sound`:null,scene,"dramatic silence before drops",shouts?`${shout} — short shouts as percussive hype accents, not sung lyrics`:null,`${bpm} BPM${selected.some(g=>g.halftime)?" halftime":""}`,detectedKey?`in ${detectedKey}`:null,adjectives.join(", "),instrumental?"no vocals":null].filter(Boolean);
     const style=slots.join(", ") + ".";
     const st=(selected[1]||selected[0]).structureType;
-    const scenes=Array.from({length:8},()=>pick(moodObj.sceneBank));
     const shoutTag=shouts?` — ${shout}`:"";
     const tags=st==="drop-arc"?["Intro","Verse","Build","Drop","Breakdown","Build","Drop","Outro"]:st==="chorus-arc"?["Intro","Verse","Pre-Chorus","Chorus","Verse","Chorus","Bridge","Final Chorus","Outro"]:["Pulse","Layer 1","Layer 2","Build","Full Assembly","Reset","Final Assembly","Dissolve"];
-    const lyrics=tags.map((t,i)=>`[${t}${(t.includes("Build")||t.includes("Drop")||t.includes("Assembly"))?shoutTag:""}]\n${scenes[i%scenes.length]}`).join("\n\n");
+    const usedScenes=new Set<string>();
+    const sections=tags.map(tag=>{
+      const sceneFragment=takeScene(tag,sceneBank,usedScenes);
+      const sectionShout=(tag.includes("Build")||tag.includes("Drop")||tag.includes("Assembly"))?shoutTag:"";
+      return `[${tag}${sectionShout} - ${sceneFragment}]`;
+    });
+    const lyrics=sections.join("\n\n")+(instrumental?"\n\n(instrumental, no vocals)":"");
     const pair={id:Date.now(),style,lyrics,meta:`${base} × ${drop} · ${bpm} BPM${detectedKey?` · ${detectedKey}`:""}`,detectedKey:detectedKey || undefined};
     setResult(pair); const next=[pair,...history].slice(0,20); setHistory(next); localStorage.setItem("fable-history",JSON.stringify(next));
   }
